@@ -10,6 +10,7 @@ export default class UserStore {
   @action
   async signin(username, password) {
     this.username = await this.authService.signin(username, password);
+	 this.imalac = await this.authService.signin(username, password);
   }
 
   @action

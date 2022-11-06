@@ -1,25 +1,36 @@
-import React, { Component } from "react";
-import {
-  Card,
-  CardContent,
-  CardActions,
-  IconButton,
-  Select,
-  FormControl,
-  Grid,
-} from "@material-ui/core";
-import DeleteIcon from "@material-ui/icons/Delete";
+import React, { Component, useState } from "react";
+
 import styled from "styled-components";
 import { inject } from "mobx-react";
 
-const CardContainer = styled.div`
-  margin-bottom: 20px;
-`;
+import TableCell, { tableCellClasses } from "@mui/material/TableCell";
+import TableRow from "@mui/material/TableRow";
+import moment from "moment";
 
-const CardTitle = styled.h1`
-  margin: 8px 0;
-  font-size: 22px;
-`;
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: "white",
+    color: "black",
+  },
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 12,
+    paddingTop: 0,
+    paddingRight: 0,
+    paddingBottom: 0,
+    paddingLeft: 5,
+  },
+}));
+
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+  "&:nth-of-type(odd)": {
+    backgroundColor: "#edf4ff",
+    //theme.palette.action.hover,
+  },
+
+  "&:nth-of-type(even)": {
+    backgroundColor: "#c0cde0",
+  },
+}));
 
 @inject("tasksStore")
 class Task extends Component {
@@ -43,25 +54,22 @@ class Task extends Component {
     } = this.props;
 
     return (
-      <CardContainer>
-        <Card>
-          <CardContent>
-            <CardTitle>{naziv}</CardTitle>
-            <CardTitle>{proizvodjac}</CardTitle>
-            <CardTitle>{tip}</CardTitle>
-            <CardTitle>{serbr}</CardTitle>
-            <CardTitle>{uvjerenje_broj}</CardTitle>
-            <CardTitle>{vazi_do}</CardTitle>
-            <CardTitle>{ispostava}</CardTitle>
-          </CardContent>
-          <CardActions style={{ padding: "14px" }} disableSpacing>
-            <Grid
-              justify="space-between" // Add it here :)
-              container
-            ></Grid>
-          </CardActions>
-        </Card>
-      </CardContainer>
+      <StyledTableRow>
+        <StyledTableCell>{naziv}</StyledTableCell>
+        <StyledTableCell>{proizvodjac}</StyledTableCell>
+        <StyledTableCell>{tip}</StyledTableCell>
+        <StyledTableCell>{serbr}</StyledTableCell>
+        <StyledTableCell>{uvjerenje_broj}</StyledTableCell>
+        <StyledTableCell
+          sx={{
+            backgroundColor: moment().isBefore(vazi_do) ? "green" : "red",
+            color: "yellow",
+          }}
+        >
+          {moment(vazi_do).utc().format("DD.MM.YYYY")}
+        </StyledTableCell>
+        <StyledTableCell>{ispostava}</StyledTableCell>
+      </StyledTableRow>
     );
   }
 }

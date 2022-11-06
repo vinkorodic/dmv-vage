@@ -8,8 +8,10 @@ export default class AuthService extends BaseHttpService {
       password,
     });
     const accessToken = result.data.accessToken;
+    const imalac = result.data.imalac;
     this.saveToken(accessToken);
-    return result.data.username;
+    return imalac;
+    //this.saveImalac(imalac);
   }
 
   async signup(username, password) {
