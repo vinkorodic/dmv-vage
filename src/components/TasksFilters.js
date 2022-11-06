@@ -60,7 +60,7 @@ class TasksFilters extends Component {
     return (
       <FiltersContainer>
         <Grid
-          justifyContent="space-between" // Add it here :)
+          justify="space-between" // Add it here :)
           container
         >
           <Grid item>

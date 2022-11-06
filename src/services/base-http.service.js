@@ -68,23 +68,14 @@ export default class BaseHttpService {
     this._accessToken = accessToken;
     return localStorage.setItem("accessToken", accessToken);
   }
-  saveImalac(imalac) {
-    this._imalac = imalac;
-    return localStorage.setItem("imalac", imalac);
-  }
+
   loadToken() {
     const token = localStorage.getItem("accessToken");
     this._accessToken = token;
     return token;
-  }
-  loadImalac() {
-    const imalac = localStorage.getItem("imalac");
-    this._imalac = imalac;
-    return imalac;
   }
 
   removeToken() {
     localStorage.removeItem("accessToken");
   }
 }
-export function loadImalac() {}
