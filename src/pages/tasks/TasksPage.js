@@ -13,7 +13,7 @@ import TableRow from "@mui/material/TableRow";
 
 const TasksWrapper = styled.div`
   width: 100%;
-  max-width: 860px;
+  max-width: 960px;
   margin: auto;
   padding: 20px;
   box-sizing: border-box;
@@ -153,7 +153,7 @@ class TasksPage extends Component {
                 <StyledTableCell align="left">Važi do</StyledTableCell>
                 <StyledTableCell align="left"> Ispostava</StyledTableCell>
                 <StyledTableCell align="left"> Odjeljenje</StyledTableCell>
-                <StyledTableCell align="left"> Napomena</StyledTableCell>
+                <StyledTableCell align="left">Napomena...</StyledTableCell>
               </TableRow>
             </TableHead>
 
