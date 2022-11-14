@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 
 import styled from "styled-components";
 import { inject } from "mobx-react";
@@ -51,6 +51,8 @@ class Task extends Component {
       uvjerenje_broj,
       vazi_do,
       ispostava,
+      odjeljenje,
+      opis,
     } = this.props;
 
     return (
@@ -69,6 +71,8 @@ class Task extends Component {
           {moment(vazi_do).utc().format("DD.MM.YYYY")}
         </StyledTableCell>
         <StyledTableCell>{ispostava}</StyledTableCell>
+        <StyledTableCell>{odjeljenje}</StyledTableCell>
+        <StyledTableCell>{opis}</StyledTableCell>
       </StyledTableRow>
     );
   }

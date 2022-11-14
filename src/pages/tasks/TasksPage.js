@@ -77,7 +77,7 @@ class TasksPage extends Component {
 
   renderTasks = () => {
     const { tasksStore } = this.props;
-
+    console.log(tasksStore);
     if (!tasksStore.tasks.length) {
       return (
         <EmptyTasksPlaceholder>
@@ -97,6 +97,8 @@ class TasksPage extends Component {
         uvjerenje_broj={task.uvjerenje_broj}
         vazi_do={task.vazi_do}
         ispostava={task.ispostava}
+        odjeljenje={task.odjeljenje}
+        opis={task.opis}
       />
     ));
     console.log(tasks);
@@ -135,8 +137,12 @@ class TasksPage extends Component {
         </TasksHeader>
 
         <TasksFilters />
-        <TableContainer>
-          <Table>
+        <TableContainer
+          sx={{
+            height: 800,
+          }}
+        >
+          <Table stickyHeader>
             <TableHead>
               <TableRow>
                 <StyledTableCell align="left">Naziv</StyledTableCell>
@@ -146,9 +152,18 @@ class TasksPage extends Component {
                 <StyledTableCell align="left">Uvjerenje broj</StyledTableCell>
                 <StyledTableCell align="left">Važi do</StyledTableCell>
                 <StyledTableCell align="left"> Ispostava</StyledTableCell>
+                <StyledTableCell align="left"> Odjeljenje</StyledTableCell>
+                <StyledTableCell align="left"> Opis</StyledTableCell>
               </TableRow>
             </TableHead>
-            <TableBody>{this.renderTasks()}</TableBody>
+
+            <TableBody
+              sx={{
+                height: "max-content",
+              }}
+            >
+              {this.renderTasks()}
+            </TableBody>
           </Table>
         </TableContainer>
       </TasksWrapper>

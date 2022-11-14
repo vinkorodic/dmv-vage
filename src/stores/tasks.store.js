@@ -8,7 +8,7 @@ export default class TasksStore {
     this.tasksService = tasksService;
   }
 
-  updateFilters({ status, search }) {
+  updateFilters({ status, search, user }) {
     this.filters.status = status;
     this.filters.search = search;
 
@@ -18,7 +18,6 @@ export default class TasksStore {
   @action
   resetTasks() {
     this.filters.status = "";
-    this.filters.search = "";
     this.tasks = [];
   }
 
