@@ -11,20 +11,6 @@ object-assign
  * @license  MIT
  */
 
-/*!
- * is-plain-object <https://github.com/jonschlinkert/is-plain-object>
- *
- * Copyright (c) 2014-2017, Jon Schlinkert.
- * Released under the MIT License.
- */
-
-/*!
- * isobject <https://github.com/jonschlinkert/isobject>
- *
- * Copyright (c) 2014-2017, Jon Schlinkert.
- * Released under the MIT License.
- */
-
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation. All rights reserved.
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use
@@ -50,14 +36,6 @@ and limitations under the License.
  * @license MIT
  */
 
-/**
- * CSS Vendor prefix detection and property feature testing.
- *
- * @copyright Oleg Slobodskoi 2015
- * @website https://github.com/jsstyles/css-vendor
- * @license MIT
- */
-
 /** @license MUI v5.10.8
  *
  * This source code is licensed under the MIT license found in the
@@ -66,6 +44,15 @@ and limitations under the License.
 
 /** @license React v0.19.1
  * scheduler.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/** @license React v16.13.1
+ * react-is.production.min.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -100,7 +87,7 @@ and limitations under the License.
  * LICENSE file in the root directory of this source tree.
  */
 
-/** @license React v16.8.6
+/** @license React v17.0.2
  * react-is.production.min.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
