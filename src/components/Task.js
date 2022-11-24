@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { Component, useState } from "react";
+=======
+import React, { Component } from "react";
+>>>>>>> 43046c33a209543fe0f9f5d0b7eb9e994e6b5a1b
 
 import styled from "styled-components";
 import { inject } from "mobx-react";
