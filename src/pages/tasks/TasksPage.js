@@ -153,8 +153,7 @@ class TasksPage extends Component {
                 <StyledTableCell align="left">Važi do</StyledTableCell>
                 <StyledTableCell align="left"> Ispostava</StyledTableCell>
                 <StyledTableCell align="left"> Odjeljenje</StyledTableCell>
-                <StyledTableCell align="left"> Opis</StyledTableCell>
-                <StyledTableCell align="left">Napomena...</StyledTableCell>
+                <StyledTableCell align="left"> Napomena...</StyledTableCell>
               </TableRow>
             </TableHead>
 
