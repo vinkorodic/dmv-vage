@@ -1,11 +1,15 @@
 import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
-import { Fab, IconButton } from "@material-ui/core";
-import AddIcon from "@material-ui/icons/Add";
-import SignOutIcon from "@material-ui/icons/ExitToApp";
+import { Button } from "@material-ui/core";
 import styled from "styled-components";
 import Task from "../../components/Task";
 import TasksFilters from "../../components/TasksFilters";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell, { tableCellClasses } from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
 
 const TasksWrapper = styled.div`
   width: 100%;
@@ -16,8 +20,9 @@ const TasksWrapper = styled.div`
 `;
 
 const TasksHeader = styled.div`
+  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   border-bottom: 3px solid #757c87;
 `;
 
@@ -27,30 +32,34 @@ const Title = styled.h1`
   text-align: center;
 `;
 
-const CreateButtonContainer = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-`;
-
-const TasksContainer = styled.div`
-  padding-top: 20px;
-`;
-
 const EmptyTasksPlaceholder = styled.p`
   color: #edf4ff;
   text-align: center;
   font-size: 22px;
 `;
 
-const SignOutIconContainer = styled.div`
+const SignOutButtonContainer = styled.div`
   margin-left: 10px;
 
   .signOutIcon {
     fill: #edf4ff;
   }
 `;
+const Podnaslov = styled.div`
+  color: #edf4ff;
+  text-align: center;
+  font-size: 22px;
+`;
+
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: "#434e5e",
+    color: "#edf4ff",
+  },
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 14,
+  },
+}));
 
 @inject("tasksStore", "routerStore", "userStore")
 @observer
@@ -68,16 +77,16 @@ class TasksPage extends Component {
 
   renderTasks = () => {
     const { tasksStore } = this.props;
-
+    console.log(tasksStore);
     if (!tasksStore.tasks.length) {
       return (
         <EmptyTasksPlaceholder>
-          No tasks available. Create one?
+          Nema podataka o verifikaciji vaga.
         </EmptyTasksPlaceholder>
       );
     }
 
-    return tasksStore.tasks.map((task) => (
+    const tasks = tasksStore.tasks.map((task) => (
       <Task
         key={task.id}
         id={task.id}
@@ -88,31 +97,75 @@ class TasksPage extends Component {
         uvjerenje_broj={task.uvjerenje_broj}
         vazi_do={task.vazi_do}
         ispostava={task.ispostava}
+        odjeljenje={task.odjeljenje}
+        opis={task.opis}
       />
     ));
+    console.log(tasks);
+    return tasks;
+  };
+  renderUser = () => {
+    const { userStore } = this.props;
+    const imalac = userStore.imalac;
+    return imalac;
   };
 
   render() {
     return (
       <TasksWrapper>
         <TasksHeader>
-          <Title>Pregled verifikacije vaga</Title>
+          <img src="logo.jpg" alt="DMV" width="150" height="80" />
+          <div>
+            <Title>Pregled verifikacije vaga</Title>
+            <Podnaslov>{this.renderUser()}</Podnaslov>
+          </div>
 
-          <CreateButtonContainer>
-            <SignOutIconContainer>
-              <IconButton
-                onClick={this.handleSignOut}
-                placeholder="IZLAZ IZ APLIKACIJE"
-              >
-                <SignOutIcon className="signOutIcon" />
-              </IconButton>
-            </SignOutIconContainer>
-          </CreateButtonContainer>
+          <SignOutButtonContainer>
+            <Button
+              onClick={this.handleSignOut}
+              style={{
+                marginBottom: "10px",
+                borderRadius: "15px",
+                backgroundColor: "#c0cde0",
+              }}
+              variant="outlined"
+              //color="primary"
+            >
+              ODJAVA
+            </Button>
+          </SignOutButtonContainer>
         </TasksHeader>
 
         <TasksFilters />
+        <TableContainer
+          sx={{
+            height: 800,
+          }}
+        >
+          <Table stickyHeader>
+            <TableHead>
+              <TableRow>
+                <StyledTableCell align="left">Naziv</StyledTableCell>
+                <StyledTableCell align="left">Proizvođač</StyledTableCell>
+                <StyledTableCell align="left">Tip</StyledTableCell>
+                <StyledTableCell align="left">Serijski broj</StyledTableCell>
+                <StyledTableCell align="left">Uvjerenje broj</StyledTableCell>
+                <StyledTableCell align="left">Važi do</StyledTableCell>
+                <StyledTableCell align="left"> Ispostava</StyledTableCell>
+                <StyledTableCell align="left"> Odjeljenje</StyledTableCell>
+                <StyledTableCell align="left"> Opis</StyledTableCell>
+              </TableRow>
+            </TableHead>
 
-        <TasksContainer>{this.renderTasks()}</TasksContainer>
+            <TableBody
+              sx={{
+                height: "max-content",
+              }}
+            >
+              {this.renderTasks()}
+            </TableBody>
+          </Table>
+        </TableContainer>
       </TasksWrapper>
     );
   }

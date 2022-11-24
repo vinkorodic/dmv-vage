@@ -42,6 +42,7 @@ class TasksFilters extends Component {
 
   syncFilters = () => {
     const { status, search } = this.state;
+
     this.filters$.next({ status, search });
   };
 
@@ -59,14 +60,14 @@ class TasksFilters extends Component {
     return (
       <FiltersContainer>
         <Grid
-          justify="space-between" // Add it here :)
+          justifyContent="space-between" // Add it here :)
           container
         >
           <Grid item>
             <ControlContainer>
               <FormControl style={{ width: "220px" }}>
                 <TextField
-                  placeholder="Search..."
+                  placeholder="Pretraživač..."
                   value={this.state.search}
                   onChange={this.handleSearchTermChange}
                   InputProps={{
@@ -77,6 +78,22 @@ class TasksFilters extends Component {
                     ),
                   }}
                 />
+              </FormControl>
+            </ControlContainer>
+          </Grid>
+          <Grid item>
+            <ControlContainer>
+              <FormControl style={{ width: "220px" }}>
+                <Select
+                  value={this.state.status}
+                  onChange={this.handleStatusFilterChange}
+                  displayEmpty
+                >
+                  <MenuItem value="">UKUPNO</MenuItem>
+                  <MenuItem value={"ALARM"}>Alarm lista</MenuItem>
+                  <MenuItem value={"ISTEK"}>Istek za 7 dana</MenuItem>
+                  <MenuItem value={"OK"}>Važeći</MenuItem>
+                </Select>
               </FormControl>
             </ControlContainer>
           </Grid>
