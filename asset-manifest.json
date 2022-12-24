@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "https://vinkorodic.github.io/dmv-vage/static/css/main.985582f7.css",
-    "main.js": "https://vinkorodic.github.io/dmv-vage/static/js/main.91015e60.js",
+    "main.css": "https://vinkorodic.github.io/dmv-vage/static/css/main.6e85642b.css",
+    "main.js": "https://vinkorodic.github.io/dmv-vage/static/js/main.f71b9864.js",
     "index.html": "https://vinkorodic.github.io/dmv-vage/index.html",
-    "main.985582f7.css.map": "https://vinkorodic.github.io/dmv-vage/static/css/main.985582f7.css.map",
-    "main.91015e60.js.map": "https://vinkorodic.github.io/dmv-vage/static/js/main.91015e60.js.map"
+    "main.6e85642b.css.map": "https://vinkorodic.github.io/dmv-vage/static/css/main.6e85642b.css.map",
+    "main.f71b9864.js.map": "https://vinkorodic.github.io/dmv-vage/static/js/main.f71b9864.js.map"
   },
   "entrypoints": [
-    "static/css/main.985582f7.css",
-    "static/js/main.91015e60.js"
+    "static/css/main.6e85642b.css",
+    "static/js/main.f71b9864.js"
   ]
 }
