@@ -42,6 +42,16 @@ class Task extends Component {
     this.props.tasksStore.updateTaskStatus(this.props.id, e.target.value);
   };
 
+  handlePdfDoc = (image) => {
+    if (!image.length) {
+      //console.log("nema pdf");
+      return;
+    }
+    //console.log("ima pdf" + image);
+
+    window.open(image, "_blank");
+  };
+
   render() {
     const {
       naziv,
@@ -50,18 +60,28 @@ class Task extends Component {
       serbr,
       uvjerenje_broj,
       vazi_do,
+      image,
       ispostava,
       odjeljenje,
       opis,
     } = this.props;
 
     return (
-      <StyledTableRow>
+      <StyledTableRow sx={{ userSelect: "none" }}>
         <StyledTableCell>{naziv}</StyledTableCell>
         <StyledTableCell>{proizvodjac}</StyledTableCell>
         <StyledTableCell>{tip}</StyledTableCell>
         <StyledTableCell>{serbr}</StyledTableCell>
-        <StyledTableCell>{uvjerenje_broj}</StyledTableCell>
+        <StyledTableCell
+          onClick={() => this.handlePdfDoc(image)}
+          sx={{
+            color: "yellow",
+            backgroundColor: image ? "green" : "red",
+            cursor: image ? "pointer" : "not-allowed",
+          }}
+        >
+          {uvjerenje_broj}
+        </StyledTableCell>
         <StyledTableCell
           sx={{
             backgroundColor: moment().isBefore(vazi_do) ? "green" : "red",

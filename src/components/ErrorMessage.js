@@ -29,16 +29,17 @@ export default class ErrorMessage extends Component {
   };
 
   render() {
+    // eslint-disable-next-line no-unused-vars
     const { message } = this.props;
 
     return (
       <ErrorContainer>
         <ErrorHeading>Greška u podacima za prijavu!</ErrorHeading>
-        {Array.isArray(message) ? (
+        {/* {Array.isArray(message) ? (
           this.renderMessageArray(message)
         ) : (
           <p>{message}</p>
-        )}
+        )} */}
       </ErrorContainer>
     );
   }

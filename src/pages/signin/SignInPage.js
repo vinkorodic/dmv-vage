@@ -7,18 +7,19 @@ import { inject } from "mobx-react";
 import ErrorMessage from "../../components/ErrorMessage";
 
 const Heading = styled.h1`
-  margin-top: 0;
+  margin-top: 10;
   width: 80%;
+  background-color: #3f51b5;
 
-  background-color: #3458be;
   color: #edf4ff;
   text-align: center;
-  border-radius: 5px;
 `;
 const Naslovna = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: #3f51b5;
+  border-radius: 5px;
 `;
 
 const FormContainer = styled.div`
@@ -68,11 +69,14 @@ class SignInPage extends Component {
       <div className="fullscreen-wrapper">
         <FormContainer>
           <Naslovna>
-            <img src="logo.jpg" alt="DMV" />
-            <Heading>DMV - vage</Heading>
+            <img src="logoBijeli.png" alt="DMV" style={{ padding: "16px" }} />
+            <Heading>
+              <div sx={{ height: "50 px" }}>DMV D.O.O.</div>
+              <div style={{ fontSize: "24px" }}>Podaci o verifikaciji vaga</div>
+            </Heading>
           </Naslovna>
 
-          <p>Unesi korisničko ime i lozinku!</p>
+          <h4>Unesi korisničko ime i lozinku!</h4>
 
           {errorMessage && <ErrorMessage message={this.state.errorMessage} />}
 
@@ -106,10 +110,6 @@ class SignInPage extends Component {
             >
               PRIJAVA
             </Button>
-
-            {/* <Button fullWidth onClick={this.goToSignUp}>
-              Don't have an account? Sign up now!
-            </Button> */}
           </div>
         </FormContainer>
       </div>

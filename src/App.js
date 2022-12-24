@@ -14,9 +14,8 @@ class App extends Component {
       <Fragment>
         <Route exact path="/" component={SignInPage} />
         <Route path="/signin/" component={SignInPage} />
-        {/* <Route path="/signup/" component={SignUpPage} /> */}
+
         <Route exact path="/tasks" component={TasksPage} />
-        {/* <Route exact path="/tasks/create" component={CreateTaskPage} /> */}
       </Fragment>
     );
   }

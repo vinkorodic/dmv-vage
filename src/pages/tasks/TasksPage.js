@@ -96,12 +96,13 @@ class TasksPage extends Component {
         serbr={task.serbr}
         uvjerenje_broj={task.uvjerenje_broj}
         vazi_do={task.vazi_do}
+        image={task.image}
         ispostava={task.ispostava}
         odjeljenje={task.odjeljenje}
         opis={task.opis}
       />
     ));
-    console.log(tasks);
+
     return tasks;
   };
   renderUser = () => {
@@ -114,7 +115,7 @@ class TasksPage extends Component {
     return (
       <TasksWrapper>
         <TasksHeader>
-          <img src="logo.jpg" alt="DMV" width="150" height="80" />
+          <img src="logoBijeli.png" alt="DMV" width="150" height="80" />
           <div>
             <Title>Pregled verifikacije vaga</Title>
             <Podnaslov>{this.renderUser()}</Podnaslov>
