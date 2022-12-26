@@ -75,8 +75,7 @@ class Task extends Component {
         <StyledTableCell
           onClick={() => this.handlePdfDoc(image)}
           sx={{
-            color: "yellow",
-            backgroundColor: image ? "green" : "red",
+            color: image ? "green" : "red",
             cursor: image ? "pointer" : "not-allowed",
           }}
         >

@@ -115,7 +115,7 @@ class TasksPage extends Component {
     return (
       <TasksWrapper>
         <TasksHeader>
-          <img src="logoBijeli.png" alt="DMV" width="150" height="80" />
+          <img src="logoBijeli.png" alt="DMV" width="150" height="90" />
           <div>
             <Title>Pregled verifikacije vaga</Title>
             <Podnaslov>{this.renderUser()}</Podnaslov>
@@ -140,7 +140,7 @@ class TasksPage extends Component {
         <TasksFilters />
         <TableContainer
           sx={{
-            height: 800,
+            height: 700,
           }}
         >
           <Table stickyHeader>
